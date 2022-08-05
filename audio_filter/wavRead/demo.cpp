@@ -18,8 +18,8 @@ int main(int argc, char* argv[]) {
 	while (wavread.hasSample()) {
 		WAVread::StereoSample s = wavread.getStereoSample();
 		double t = (double)n / (double)(wavread.getFs());
-		fprintf(f1,"%f %f\n",t,s.left);
-		fprintf(f2,"%f %f\n",t,s.right);
+		fprintf(f1,"%f %d\n",t,s.left);
+		fprintf(f2,"%f %d\n",t,s.right);
 	}
 	fclose(f1);
 	fclose(f2);
