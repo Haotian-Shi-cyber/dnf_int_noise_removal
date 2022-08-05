@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/wavRead/demo.cpp
+wavread.h
+/home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/wavRead/wavread.h
+
+/home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/wavRead/wavread.h
+stdio.h
+-
+stdlib.h
+-
+stdint.h
+-
+string.h
+-
+cmath
+-
+cassert
+-
+
