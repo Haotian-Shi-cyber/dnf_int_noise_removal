@@ -7,7 +7,7 @@ const double fs = 48000;
 
 const char* const audioPath = "audio/exp%d/signal_noise.wav";
 
-const Neuron::actMethod ACTIVATION = Neuron::Act_NONE;
+const Neuron::actMethod ACTIVATION = Neuron::Act_Tanh;
 
 // number of experiments
 const int nExp = 1;

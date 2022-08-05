@@ -112,7 +112,8 @@ int Neuron::calcOutput(int _layerHasReported){
 	sum += bias;
 	assert(std::isfinite(sum));
 	sum_after = int(sum >> 16);
-	output = doActivation(sum_after);
+	output_before = doActivation(sum_after);
+	output = output_before >> 16;
 	iHaveReported = _layerHasReported;
 	if (output > SATURATING_NUM && iHaveReported == 0){
 		cout << "I'm saturating, " << output << " layer: " << myLayerIndex << " neuron: " << myNeuronIndex << endl;
@@ -144,7 +145,7 @@ void Neuron::updateWeights(){
 	maxWeight = 0;
 	minWeight = 0;
 	for (int i=0; i<nInputs; i++){
-		int update = int(w_learningRate * inputs[i]* error / 2147483648);
+		int update = long(w_learningRate * inputs[i]* error) / 2147483648;
 		weights[i] += update;
 		weightSum += abs(weights[i]); 
 		maxWeight = max (maxWeight,weights[i]);

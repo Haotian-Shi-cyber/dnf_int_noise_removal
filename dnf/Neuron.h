@@ -128,7 +128,7 @@ public:
 	 * @param _sum the weighted sum of all inputs
 	 * @return activation of the sum
 	 */
-	inline int doActivation(const int sum) const {
+	inline long doActivation(const long sum) const {
 		switch(actMet){
 		case Act_Sigmoid:
 			//return (1/(1+(exp(-sum))));// not fixed yet
@@ -137,21 +137,26 @@ public:
 			//abs_sum = abs(sum);
 			//divide it several small trunks
 			if (abs(sum) < 3235443){
-				return sum;}
+				return sum << 16;}
+				//return sum;}
 			else if (abs(sum) >= 3235443 && abs(sum) < 5033164)
-				{return round(sum * 0.8);}
+				{return sum * 52429;} // sum * 0.8 * 65536
+				//{return sum * 0.8;}
 			else if (abs(sum) >= 5033164 && abs(sum) < 8388608)
-				{return round(sum * 0.5);}
+				{return sum * 32768;} // sum * 0.5 * 65536
+				//{return sum * 0.5;}
 			else if (abs(sum) >= 8388608 && abs(sum) < 15099494)
-				{return round(sum * 0.2);}
+				{return sum * 13107;} // sum * 0.2 * 65536
+				//{return sum * 0.2;}
 			else
-				{return INT24_MAX;}
+				{return INT24_MAX << 16;}
+				//{return INT24_MAX;}
 		case Act_ReLU:
-			if (sum > 0) return sum; else return 0;
+			if (sum > 0) return sum << 16; else return 0;
 		case Act_NONE:
-			return sum;
+			return sum << 16;
 		}
-		return sum;
+		return sum << 16;
 	}
 
 	/**
@@ -159,27 +164,35 @@ public:
 	 * @param _input the input value
 	 * @return the inverse activation of the input
 	 */
-	inline double doActivationPrime(const long input) const {
+	inline int doActivationPrime(const long input) const {
 		switch(actMet){
 		case Act_Sigmoid:
 			//return 1 * (0.5 + doActivation(input)) * (0.5 - doActivation(input));
 			return 0;
 		case Act_Tanh:
 			if(abs(input) < 1677721){
-				return 1;
+				return 65536; // 2^16
+				//return 1;
 			} else if (abs(input) >= 1677721 && abs(input) < 3355443){
-				return 0.9;
+				return 58982; // 2^16 * 0.9
+				//return 0.9;
 			} else if (abs(input) >= 3355443 && abs(input) < 5033164){
-				return 0.7;
+				return 45875; // 2^16 * 0.7
+				//return 0.7;
 			} else if (abs(input) >= 5033164 && abs(input) < 6710886){
-				return 0.6;
+				return 39321;// 2^16 * 0.6
+				//return 0.6;
 			} else if (abs(input) >= 6710886 && abs(input) < 8388607){
-				return 0.4;
+				return 26214;// 2^16 * 0.4
+				//return 0.4;
 			} else if (abs(input) >= 8388607 && abs(input) < 11744051){ //1.0 - 1.4
-				return 0.3;
+				return 19660;// 2^16 * 0.3
+				//return 0.3;
 			} else if (abs(input) >= 11744051){
-				return 0.1;
-			}
+				return 6553;// 2^16 * 0.1
+				//return 0.1;
+			} else
+				return 0;
 		case Act_ReLU:
 			if (sum > 0) return 1; else return 0;
 		case Act_NONE:
@@ -192,8 +205,8 @@ public:
 	 * Sets the internal backprop error
 	 * @param _input the input value
 	 */
-	inline void setBackpropError(const double upstreamDeltaErrorSum) {
-		error = int(long(doActivationPrime(getSumOutput()) * upstreamDeltaErrorSum) >> 16); // double * long may change value
+	inline void setBackpropError(const long upstreamDeltaErrorSum) {
+		error = long(doActivationPrime(getSumOutput()) * upstreamDeltaErrorSum) >> 32; // double * long may change value
 	}
 
 	/**
@@ -302,8 +315,9 @@ private:
 
 	int bias = 0;
 	long sum = 0;
-	int sum_after = 0;
+	long sum_after = 0;
 	int output = 0;
+	long output_before = 0;
 
 	int abs_sum;
 	//learning:
