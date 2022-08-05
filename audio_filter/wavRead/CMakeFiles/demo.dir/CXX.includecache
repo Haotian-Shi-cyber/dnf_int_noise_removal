@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/wavRead/demo.cpp
+/home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter/wavRead/demo.cpp
 wavread.h
-/home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/wavRead/wavread.h
+/home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter/wavRead/wavread.h
 
-/home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/wavRead/wavread.h
+/home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter/wavRead/wavread.h
 stdio.h
 -
 stdlib.h

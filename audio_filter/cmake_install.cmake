@@ -1,4 +1,4 @@
-# Install script for directory: /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter
+# Install script for directory: /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/wavRead/cmake_install.cmake")
+  include("/home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter/wavRead/cmake_install.cmake")
 
 endif()
 

@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/haotian/Desktop/mydeepclone/deepNeuronalFilter
+CMAKE_SOURCE_DIR = /home/haotian/Desktop/123/dnf_int_noise_removal
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/haotian/Desktop/mydeepclone/deepNeuronalFilter
+CMAKE_BINARY_DIR = /home/haotian/Desktop/123/dnf_int_noise_removal
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ install/local/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter && $(CMAKE_COMMAND) -E cmake_progress_start /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/CMakeFiles /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/wavRead/CMakeFiles/progress.marks
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter && $(MAKE) -f CMakeFiles/Makefile2 audio_filter/wavRead/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/CMakeFiles 0
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal && $(CMAKE_COMMAND) -E cmake_progress_start /home/haotian/Desktop/123/dnf_int_noise_removal/CMakeFiles /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter/wavRead/CMakeFiles/progress.marks
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal && $(MAKE) -f CMakeFiles/Makefile2 audio_filter/wavRead/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/haotian/Desktop/123/dnf_int_noise_removal/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter && $(MAKE) -f CMakeFiles/Makefile2 audio_filter/wavRead/clean
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal && $(MAKE) -f CMakeFiles/Makefile2 audio_filter/wavRead/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter && $(MAKE) -f CMakeFiles/Makefile2 audio_filter/wavRead/preinstall
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal && $(MAKE) -f CMakeFiles/Makefile2 audio_filter/wavRead/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter && $(MAKE) -f CMakeFiles/Makefile2 audio_filter/wavRead/preinstall
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal && $(MAKE) -f CMakeFiles/Makefile2 audio_filter/wavRead/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 audio_filter/wavRead/CMakeFiles/demo.dir/rule:
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter && $(MAKE) -f CMakeFiles/Makefile2 audio_filter/wavRead/CMakeFiles/demo.dir/rule
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal && $(MAKE) -f CMakeFiles/Makefile2 audio_filter/wavRead/CMakeFiles/demo.dir/rule
 .PHONY : audio_filter/wavRead/CMakeFiles/demo.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ demo: audio_filter/wavRead/CMakeFiles/demo.dir/rule
 
 # fast build rule for target.
 demo/fast:
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter && $(MAKE) -f audio_filter/wavRead/CMakeFiles/demo.dir/build.make audio_filter/wavRead/CMakeFiles/demo.dir/build
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal && $(MAKE) -f audio_filter/wavRead/CMakeFiles/demo.dir/build.make audio_filter/wavRead/CMakeFiles/demo.dir/build
 .PHONY : demo/fast
 
 demo.o: demo.cpp.o
@@ -188,7 +188,7 @@ demo.o: demo.cpp.o
 
 # target to build an object file
 demo.cpp.o:
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter && $(MAKE) -f audio_filter/wavRead/CMakeFiles/demo.dir/build.make audio_filter/wavRead/CMakeFiles/demo.dir/demo.cpp.o
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal && $(MAKE) -f audio_filter/wavRead/CMakeFiles/demo.dir/build.make audio_filter/wavRead/CMakeFiles/demo.dir/demo.cpp.o
 .PHONY : demo.cpp.o
 
 demo.i: demo.cpp.i
@@ -197,7 +197,7 @@ demo.i: demo.cpp.i
 
 # target to preprocess a source file
 demo.cpp.i:
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter && $(MAKE) -f audio_filter/wavRead/CMakeFiles/demo.dir/build.make audio_filter/wavRead/CMakeFiles/demo.dir/demo.cpp.i
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal && $(MAKE) -f audio_filter/wavRead/CMakeFiles/demo.dir/build.make audio_filter/wavRead/CMakeFiles/demo.dir/demo.cpp.i
 .PHONY : demo.cpp.i
 
 demo.s: demo.cpp.s
@@ -206,7 +206,7 @@ demo.s: demo.cpp.s
 
 # target to generate assembly for a file
 demo.cpp.s:
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter && $(MAKE) -f audio_filter/wavRead/CMakeFiles/demo.dir/build.make audio_filter/wavRead/CMakeFiles/demo.dir/demo.cpp.s
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal && $(MAKE) -f audio_filter/wavRead/CMakeFiles/demo.dir/build.make audio_filter/wavRead/CMakeFiles/demo.dir/demo.cpp.s
 .PHONY : demo.cpp.s
 
 # Help Target
@@ -237,6 +237,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

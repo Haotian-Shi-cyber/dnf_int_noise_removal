@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/haotian/Desktop/mydeepclone/deepNeuronalFilter
+CMAKE_SOURCE_DIR = /home/haotian/Desktop/123/dnf_int_noise_removal
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/haotian/Desktop/mydeepclone/deepNeuronalFilter
+CMAKE_BINARY_DIR = /home/haotian/Desktop/123/dnf_int_noise_removal
 
 # Include any dependencies generated for this target.
 include audio_filter/CMakeFiles/audio_filter.dir/depend.make
@@ -59,29 +59,29 @@ include audio_filter/CMakeFiles/audio_filter.dir/flags.make
 
 audio_filter/CMakeFiles/audio_filter.dir/audio_filter.cpp.o: audio_filter/CMakeFiles/audio_filter.dir/flags.make
 audio_filter/CMakeFiles/audio_filter.dir/audio_filter.cpp.o: audio_filter/audio_filter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/haotian/Desktop/mydeepclone/deepNeuronalFilter/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object audio_filter/CMakeFiles/audio_filter.dir/audio_filter.cpp.o"
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/audio_filter.dir/audio_filter.cpp.o -c /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/audio_filter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/haotian/Desktop/123/dnf_int_noise_removal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object audio_filter/CMakeFiles/audio_filter.dir/audio_filter.cpp.o"
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/audio_filter.dir/audio_filter.cpp.o -c /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter/audio_filter.cpp
 
 audio_filter/CMakeFiles/audio_filter.dir/audio_filter.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/audio_filter.dir/audio_filter.cpp.i"
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/audio_filter.cpp > CMakeFiles/audio_filter.dir/audio_filter.cpp.i
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter/audio_filter.cpp > CMakeFiles/audio_filter.dir/audio_filter.cpp.i
 
 audio_filter/CMakeFiles/audio_filter.dir/audio_filter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/audio_filter.dir/audio_filter.cpp.s"
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/audio_filter.cpp -o CMakeFiles/audio_filter.dir/audio_filter.cpp.s
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter/audio_filter.cpp -o CMakeFiles/audio_filter.dir/audio_filter.cpp.s
 
 audio_filter/CMakeFiles/audio_filter.dir/dynamicPlots.cpp.o: audio_filter/CMakeFiles/audio_filter.dir/flags.make
 audio_filter/CMakeFiles/audio_filter.dir/dynamicPlots.cpp.o: audio_filter/dynamicPlots.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/haotian/Desktop/mydeepclone/deepNeuronalFilter/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object audio_filter/CMakeFiles/audio_filter.dir/dynamicPlots.cpp.o"
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/audio_filter.dir/dynamicPlots.cpp.o -c /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/dynamicPlots.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/haotian/Desktop/123/dnf_int_noise_removal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object audio_filter/CMakeFiles/audio_filter.dir/dynamicPlots.cpp.o"
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/audio_filter.dir/dynamicPlots.cpp.o -c /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter/dynamicPlots.cpp
 
 audio_filter/CMakeFiles/audio_filter.dir/dynamicPlots.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/audio_filter.dir/dynamicPlots.cpp.i"
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/dynamicPlots.cpp > CMakeFiles/audio_filter.dir/dynamicPlots.cpp.i
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter/dynamicPlots.cpp > CMakeFiles/audio_filter.dir/dynamicPlots.cpp.i
 
 audio_filter/CMakeFiles/audio_filter.dir/dynamicPlots.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/audio_filter.dir/dynamicPlots.cpp.s"
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/dynamicPlots.cpp -o CMakeFiles/audio_filter.dir/dynamicPlots.cpp.s
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter/dynamicPlots.cpp -o CMakeFiles/audio_filter.dir/dynamicPlots.cpp.s
 
 # Object files for target audio_filter
 audio_filter_OBJECTS = \
@@ -144,8 +144,8 @@ audio_filter/audio_filter: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.4.2.0
 audio_filter/audio_filter: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.2.0
 audio_filter/audio_filter: /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0
 audio_filter/audio_filter: audio_filter/CMakeFiles/audio_filter.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/haotian/Desktop/mydeepclone/deepNeuronalFilter/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable audio_filter"
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/audio_filter.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/haotian/Desktop/123/dnf_int_noise_removal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable audio_filter"
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/audio_filter.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 audio_filter/CMakeFiles/audio_filter.dir/build: audio_filter/audio_filter
@@ -153,10 +153,10 @@ audio_filter/CMakeFiles/audio_filter.dir/build: audio_filter/audio_filter
 .PHONY : audio_filter/CMakeFiles/audio_filter.dir/build
 
 audio_filter/CMakeFiles/audio_filter.dir/clean:
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter && $(CMAKE_COMMAND) -P CMakeFiles/audio_filter.dir/cmake_clean.cmake
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter && $(CMAKE_COMMAND) -P CMakeFiles/audio_filter.dir/cmake_clean.cmake
 .PHONY : audio_filter/CMakeFiles/audio_filter.dir/clean
 
 audio_filter/CMakeFiles/audio_filter.dir/depend:
-	cd /home/haotian/Desktop/mydeepclone/deepNeuronalFilter && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/haotian/Desktop/mydeepclone/deepNeuronalFilter /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter /home/haotian/Desktop/mydeepclone/deepNeuronalFilter /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/CMakeFiles/audio_filter.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/haotian/Desktop/123/dnf_int_noise_removal && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/haotian/Desktop/123/dnf_int_noise_removal /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter /home/haotian/Desktop/123/dnf_int_noise_removal /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter/CMakeFiles/audio_filter.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : audio_filter/CMakeFiles/audio_filter.dir/depend
 

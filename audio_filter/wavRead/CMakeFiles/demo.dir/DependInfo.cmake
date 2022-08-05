@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/wavRead/demo.cpp" "/home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/wavRead/CMakeFiles/demo.dir/demo.cpp.o"
+  "/home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter/wavRead/demo.cpp" "/home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter/wavRead/CMakeFiles/demo.dir/demo.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

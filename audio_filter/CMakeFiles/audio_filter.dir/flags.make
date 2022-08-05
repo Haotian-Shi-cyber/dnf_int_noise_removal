@@ -6,5 +6,5 @@ CXX_FLAGS = -Wall -Wextra -O2 -g -DNDEBUG   -std=gnu++17
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/.. -I/home/haotian/Desktop/mydeepclone/deepNeuronalFilter/cvui/. -isystem /usr/include/opencv4 
+CXX_INCLUDES = -I/home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter/.. -I/home/haotian/Desktop/123/dnf_int_noise_removal/cvui/. -isystem /usr/include/opencv4 
 

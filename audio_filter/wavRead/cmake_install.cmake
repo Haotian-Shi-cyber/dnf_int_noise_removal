@@ -1,4 +1,4 @@
-# Install script for directory: /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/audio_filter/wavRead
+# Install script for directory: /home/haotian/Desktop/123/dnf_int_noise_removal/audio_filter/wavRead
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

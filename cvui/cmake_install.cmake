@@ -1,4 +1,4 @@
-# Install script for directory: /home/haotian/Desktop/mydeepclone/deepNeuronalFilter/cvui
+# Install script for directory: /home/haotian/Desktop/123/dnf_int_noise_removal/cvui
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
