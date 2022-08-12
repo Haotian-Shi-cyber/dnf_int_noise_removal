@@ -74,7 +74,15 @@ void Net::setLearningRate(int _w_learningRate, int _b_learningRate){
 
 void Net::setInputs(const int* _inputs, const int scale, const unsigned int offset, const int n) {
 	inputs=_inputs;
+			// using std::chrono::high_resolution_clock;
+    		// using std::chrono::duration_cast;
+    		// using std::chrono::duration;
+    		// using std::chrono::microseconds;
+			// auto t1 = high_resolution_clock::now();
 	layers[0]->setInputs(inputs, scale, offset, n); //sets the inputs to the first layer only
+			// auto t2 = high_resolution_clock::now();
+			// auto us_int = duration_cast<microseconds>(t2 - t1);
+			// std::cout << us_int.count() << " us\n";	
 }
 
 void Net::propInputs(){

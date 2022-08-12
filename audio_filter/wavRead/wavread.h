@@ -25,7 +25,6 @@
 #define _WAV_READ
 
 //left shift without losing bits
-#define INT24_MAX 8388608
 #define times 256
 
 #include <stdio.h>
@@ -64,19 +63,24 @@ public:
 		int right;
 	};
 	
-	int open(char fileName[]) {
+	// open wav file and return buffer
+	char* open(char fileName[]) {
 		filePtr = fopen(fileName, "r");
-		if (filePtr == NULL) {
-			perror("Unable to open file");
-			return -1;
-		}
+		// if (filePtr == NULL) {
+		// 	perror("Unable to open file");
+		// 	return -1;
+		// }
 		int r = fread(&hdr, sizeof(hdr), 1, filePtr);
-		if (r < 0) return r;
-		if (hdr.bitDepth != 24) {
-			fprintf(stderr,"Only int24 is supported.\n");
-			return -1;
-		}
-		return r;
+		// if (r < 0) return r;
+		// if (hdr.bitDepth != 24) {
+		// 	fprintf(stderr,"Only int24 is supported.\n");
+		// 	return -1;
+		// }
+
+		buffer = (char*)malloc(864000 * 4); // 13 s
+		//read into buffer
+		int a = fread(buffer, 1, 864000 * 4, filePtr);
+		return buffer;
 	}
 
 	int getFs() {
@@ -126,20 +130,25 @@ public:
      * 24-bit data stored at the MSB of the int32, and typically the least
      * significant byte is 0x00.
 	 */
-	int getSample() {
-		int i;
-
-		//read 3 bytes
-		int r = fread(&i, 3, 1, filePtr);
-
-		if (r < 0) return 0;
-		// a trick to avoid range overflow, now it is real 24bit number
-		int sample = (i * times);
-		sample = sample >> 8;
-
-
-		//return floating number
-		return sample;
+	int getSample(bool realtime_test = true) {
+		if(realtime_test){
+			int i = (buffer[0]) + (buffer[1] << 8) + (buffer[2] << 16);
+			int sample = (i * 256);
+			sample = sample >> 8;
+			buffer = buffer + 3;
+			return sample;
+		} else {
+			int i;
+			//read 3 bytes
+			int r = fread(&i, 3, 1, filePtr);
+			if (r < 0) return 0;
+			// a trick to avoid range overflow, now it is real 24bit number
+			int sample = (i * 256);
+			sample = sample >> 8;
+			//return floating number
+			return sample;
+		}
+		return 0;
 	}
 
 	StereoSample getStereoSample() {
@@ -155,6 +164,7 @@ private:
     FILE* filePtr = nullptr;
 	WaveHeader hdr;
 	unsigned char bytes[4];
+	char *buffer;
 };
 
 #endif

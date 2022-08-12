@@ -18,7 +18,7 @@
 #include <vector>
 
 #define SATURATING_NUM 4394304
-#define INT24_MAX 8388608
+#define INT24_MAX 8388608L
 using namespace std;
 
 /**
@@ -149,7 +149,7 @@ public:
 				{return sum * 13107;} // sum * 0.2 * 65536
 				//{return sum * 0.2;}
 			else
-				{return INT24_MAX << 16;}
+				{return INT24_MAX * 65536;}
 				//{return INT24_MAX;}
 		case Act_ReLU:
 			if (sum > 0) return sum << 16; else return 0;
@@ -206,7 +206,7 @@ public:
 	 * @param _input the input value
 	 */
 	inline void setBackpropError(const long upstreamDeltaErrorSum) {
-		error = long(doActivationPrime(getSumOutput()) * upstreamDeltaErrorSum) >> 32; // double * long may change value
+		error = int(long(doActivationPrime(getSumOutput()) * upstreamDeltaErrorSum) >> 32);
 	}
 
 	/**

@@ -70,9 +70,9 @@ void Layer::setlearningRate(int _w_learningRate, int _b_learningRate){
 //forward propagation of inputs:
 //*************************************************************************************
 
-void Layer::setInputs(const int* const _inputs, const int scale, const unsigned int offset, const int n) {
+void Layer::setInputs(const int* const _inputs, const int scale, const unsigned int offset, const int n) {  
 	/*this is only for the first layer*/
-	const int* inputs = _inputs;
+	const int* inputs = _inputs;    
 	for (int j=0; j< (n < 0 ? nInputs:n); j++){
 		Neuron** neuronsp = neurons;//point to the 1st neuron
 		/* sets a temporarily pointer to neuron-pointers
@@ -80,13 +80,25 @@ void Layer::setInputs(const int* const _inputs, const int scale, const unsigned 
 		 * the loop, so that it is set to the first neuron
 		 * everytime a new value is distributed to neurons */
 		const int input= (*inputs) * scale; //take this input value
+			// using std::chrono::high_resolution_clock;
+    		// using std::chrono::duration_cast;
+    		// using std::chrono::duration;
+    		// using std::chrono::nanoseconds;
+			// auto t1 = high_resolution_clock::now();
+
+        // 700 ns for setting a a input to 300 neurons.          
 		for (int i=0; i<nNeurons; i++){
 			(*neuronsp)->setInput(j+offset,input);
 			//set this input value for this neuron
 			neuronsp++; //point to the next neuron
+		    //std::cout << nNeurons << "\n";
 		}
+            // auto t2 = high_resolution_clock::now();
+		    // auto us_int = duration_cast<nanoseconds>(t2 - t1);
+		    // std::cout << us_int.count() << " ns\n";	
 		inputs++; //point to the next input value
 	}
+
 }
 
 void Layer::propInputs(int _index, int _value){

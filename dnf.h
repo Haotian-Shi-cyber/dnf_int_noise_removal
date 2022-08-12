@@ -53,6 +53,7 @@ public:
 	 * \returns The filtered signal where the noise has been removed by the DNF.
 	 **/
 	int filter(int signal, int noise) {
+
 		signal_delayLine.push_back(signal);
 		const int delayed_signal = signal_delayLine[0];
 		
@@ -62,17 +63,27 @@ public:
 		noise_delayLine[0] = noise / noiseDelayLineLength;
 
 		// NOISE INPUT TO NETWORK
+		// using std::chrono::high_resolution_clock;
+    	// using std::chrono::duration_cast;
+    	// using std::chrono::duration;
+    	// using std::chrono::microseconds;
+		// auto t1 = high_resolution_clock::now();
 		NNO->setInputs(noise_delayLine);
+
 		NNO->propInputs();
-		
+
 		// REMOVER OUTPUT FROM NETWORK
+
 		remover = NNO->getOutput(0);
 		f_nn = delayed_signal - remover;
-		
+
 		// FEEDBACK TO THE NETWORK 
 		NNO->setError(f_nn);
 		NNO->propErrorBackward();
 		NNO->updateWeights();
+		// auto t2 = high_resolution_clock::now();
+		// auto us_int = duration_cast<microseconds>(t2 - t1);
+		// std::cout << us_int.count() << " ms\n";
 		return f_nn;
 	}
 

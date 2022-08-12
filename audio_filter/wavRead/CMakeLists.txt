@@ -11,5 +11,3 @@ target_include_directories(wavread INTERFACE .)
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   set(CMAKE_BUILD_TYPE "RelWithDebInfo")
 endif()
-
-add_executable(demo demo.cpp)

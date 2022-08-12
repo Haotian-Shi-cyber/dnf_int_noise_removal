@@ -88,12 +88,16 @@ void processOneExperiment(const int expIndex, const bool showPlots = true) {
 	wdistance_file.open(sd + "/weight_distance.tsv", fstream::out);
 	
 	char fullpath2data[256];
+
 	sprintf(fullpath2data,audioPath,expIndex);
-	int r = wavread.open(fullpath2data);
-	if (r < 0) {
-		cout << "Unable to open file: " << fullpath2data << endl;
-		exit(1); // terminate with error
-	}
+	char* buffer = wavread.open(fullpath2data);
+
+
+
+	// if (r < 0) {
+	// 	cout << "Unable to open file: " << fullpath2data << endl;
+	// 	exit(1); // terminate with error
+	// }
 	wavread.printHeaderInfo();
 	
 	//setting up all the filters required
@@ -105,22 +109,41 @@ void processOneExperiment(const int expIndex, const bool showPlots = true) {
 	fprintf(stderr,"signalWithNoise_gain = %f, noiseref_gain = %f, remover_gain = %f\n",signalWithNoise_gain,noiseref_gain,remover_gain);
 
 	// main loop processsing sample by sample
-	while (wavread.hasSample()) {
-		WAVread::StereoSample s = wavread.getStereoSample();
-		int signalWithNoise_raw_data = s.left; // signal + noise
-		int noiseref_raw_data = s.right; // noise ref
+	while (buffer) {
+		int l = (buffer[0]) + (buffer[1] << 8) + (buffer[2] << 16);
+		int left = (l * 256);
+		left = left >> 8;
+		buffer = buffer + 3;
+
+		int r = (buffer[0]) + (buffer[1] << 8) + (buffer[2] << 16);
+		int right = (r * 256);
+		right = right >> 8;
+		buffer = buffer + 3;
+
+		int signalWithNoise_raw_data = left; // signal + noise
+		int noiseref_raw_data = right; // noise ref
 		
 		//A) SIGNALWITHNOISE ELECTRODE:
 		//1) ADJUST & AMPLIFY
-		// const double signalWithNoise_raw = signalWithNoise_gain * signalWithNoise_raw_data;
-		// double signalWithNoise_filtered = signalWithNoise_filterHP.filter(signalWithNoise_raw);// 20Hz
+		const double signalWithNoise_raw = signalWithNoise_gain * signalWithNoise_raw_data;
+		int signalWithNoise_filtered = int(signalWithNoise_filterHP.filter(signalWithNoise_raw));// 20Hz
 
 		//B) NOISEREF ELECTRODE:
 		//1) ADJUST & AMPLIFY
-		// const double noiseref_raw = noiseref_gain * noiseref_raw_data;
-		// const double noiserefhp = noiseref_filterHP.filter(noiseref_raw);
+		const double noiseref_raw = noiseref_gain * noiseref_raw_data;
+		int noiserefhp = int(noiseref_filterHP.filter(noiseref_raw));
 
-		int f_nn = dnf.filter(signalWithNoise_raw_data,noiseref_raw_data);
+		/* testing speed now begin */
+		    //  using std::chrono::high_resolution_clock;
+    		//  using std::chrono::duration_cast;
+    		//  using std::chrono::duration;
+    		//  using std::chrono::microseconds;
+			//  auto t1 = high_resolution_clock::now();
+		int f_nn = dnf.filter(signalWithNoise_filtered,noiserefhp);
+			//  auto t2 = high_resolution_clock::now();
+			//  auto us_int = duration_cast<microseconds>(t2 - t1);
+			//  std::cout << us_int.count() << " us\n";
+		/* testing speed now end */
 
 		// when sample reaches 7500, start to learn
 		if (count > (samplesNoLearning+nTapsDNF)){
@@ -190,7 +213,7 @@ void processOneExperiment(const int expIndex, const bool showPlots = true) {
 
 int main(int argc, const char *argv[]) {
 	if (argc < 2) {
-		fprintf(stderr,"Usage: %s [-a] [-b] [<expNumber>]\n",argv[0]);
+		fprintf(stderr,"Usage: %s [-a]\n",argv[0]);
 		fprintf(stderr,"       -a calculates all experiments one by one without screen output.\n");
 		fprintf(stderr,"       -b calculates all experiments multi-threaded without screen output.\n");
 		fprintf(stderr,"       Press ESC in the plot window to cancel the program.\n");
@@ -204,17 +227,17 @@ int main(int argc, const char *argv[]) {
 		return 0;
 	}
 	
-	if (strcmp(argv[1],"-b") == 0) {
-		std::thread* workers[nExp];
-		for(int i = 0; i < nExp; i++) {
-			workers[i] = new std::thread(processOneExperiment,i+1,false);
-		}
-		for(int i = 0; i < nExp; i++) {
-			workers[i]->join();
-			delete workers[i];
-		}
-		return 0;
-	}
+	// if (strcmp(argv[1],"-b") == 0) {
+	// 	std::thread* workers[nExp];
+	// 	for(int i = 0; i < nExp; i++) {
+	// 		workers[i] = new std::thread(processOneExperiment,i+1);
+	// 	}
+	// 	for(int i = 0; i < nExp; i++) {
+	// 		workers[i]->join();
+	// 		delete workers[i];
+	// 	}
+	// 	return 0;
+	// }
 	
 	const int experiment = atoi(argv[1]);
 	if ( (experiment < 1) || (experiment > nExp) ) {

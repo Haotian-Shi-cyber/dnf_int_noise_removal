@@ -12,6 +12,7 @@
 #include <string>
 #include <numeric>
 #include <vector>
+#include <chrono>
 
 using namespace std;
 
@@ -93,7 +94,15 @@ void Neuron::setInput(int _index,  long _value) {
 	 * all the inputs associated with all the neurons in that layer*/
 	assert((_index>=0)&&(_index<nInputs));
 	/*checking _index is a valid int, non-negative and within boundary*/
+			// using std::chrono::high_resolution_clock;
+    		// using std::chrono::duration_cast;
+    		// using std::chrono::duration;
+    		// using std::chrono::nanoseconds;
+			// auto t1 = high_resolution_clock::now();
 	inputs[_index] = _value;
+			// auto t2 = high_resolution_clock::now();
+		    // auto us_int = duration_cast<nanoseconds>(t2 - t1);
+		    // std::cout << us_int.count() << " ns\n";
 }
 
 void Neuron::propInputs(int _index,  int _value){
@@ -113,7 +122,7 @@ int Neuron::calcOutput(int _layerHasReported){
 	assert(std::isfinite(sum));
 	sum_after = int(sum >> 16);
 	output_before = doActivation(sum_after);
-	output = output_before >> 16;
+	output = int(output_before >> 16);
 	iHaveReported = _layerHasReported;
 	if (output > SATURATING_NUM && iHaveReported == 0){
 		cout << "I'm saturating, " << output << " layer: " << myLayerIndex << " neuron: " << myNeuronIndex << endl;
@@ -145,7 +154,7 @@ void Neuron::updateWeights(){
 	maxWeight = 0;
 	minWeight = 0;
 	for (int i=0; i<nInputs; i++){
-		int update = long(w_learningRate * inputs[i]* error) / 2147483648;
+		int update = int(long(w_learningRate * inputs[i]* error) / 2147483648); // >> 31 causes learning errors at around sample 16000
 		weights[i] += update;
 		weightSum += abs(weights[i]); 
 		maxWeight = max (maxWeight,weights[i]);
